@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Minh hôn · Hỷ Sự Thực</title>
+<link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+<div id="fade"></div>
+<div id="flash"></div>
+
+<!-- ===== MÀN HÌNH BẮT ĐẦU ===== -->
+<div id="startScreen" class="overlay">
+  <div class="box center">
+    <p class="subtitle">冥婚 · HỶ TANG</p>
+    <h1 class="title">TÂN LANG</h1>
+    <h2>HỶ SỰ THỰC</h2>
+    <p class="desc">Một lời mời đỏ. Một đêm tân hôn. Một bí mật không thể chôn vùi.</p>
+    <div class="btn-row">
+      <button class="btn big" id="btnStart">BẮT ĐẦU</button>
+      <button class="btn big ghost" id="btnContinue" hidden>TIẾP TỤC</button>
+    </div>
+    <p class="note">Tai nghe sẽ giúp trải nghiệm đáng sợ hơn 🎧</p>
+  </div>
+</div>
+
+<!-- ===== DẪN TRUYỆN ===== -->
+<div id="introScreen" class="overlay hidden">
+  <div class="box center">
+    <p id="introNumber" class="subtitle"></p>
+    <h2 id="introTitle"></h2>
+    <p id="introText"></p>
+    <button class="btn big" id="btnIntroNext">TIẾP TỤC →</button>
+    <button class="btn link" id="btnIntroSkip">Bỏ qua</button>
+  </div>
+</div>
+
+<!-- ===== GAME ===== -->
+<main id="game" class="hidden">
+  <div id="scene">
+    <div id="bg"></div>
+    <canvas id="rain"></canvas>
+    <div id="objects"></div>
+/tân lang ôm nè
+  </div>
+  <div id="vignette"></div>
+<div id="ghost-overlay" class="ghost-overlay hidden">
+  <img src="./objects/tanlang_om.png">
+</div>
+
+  <div id="hud">
+    <div id="roomTitle"></div>
+    <div class="stat">
+      <span>Tâm trí</span>
+      <div class="bar"><i id="sanityFill"></i></div>
+      <b id="sanityNum">100</b>
+    </div>
+    <div id="drumCount" title="Số hồi trống đã vang">🥁 <span>0</span>/3</div>
+  </div>
+
+  <nav class="tools" id="tools">
+    <button data-panel="inventory">🎒 Hành trang</button>
+    <button data-panel="rules">📜 Quy tắc</button>
+    <button data-panel="clues">🔍 Manh mối</button>
+    <button data-panel="guests">👥 Khách mời</button>
+    <button data-panel="map">🗺 Bản đồ</button>
+    <button data-panel="journal">📖 Nhật ký</button>
+    <button data-panel="character">👤 Nhân vật</button>
+    <button data-panel="audio">🔊 Âm thanh</button>
+    <button id="btnHint">💡 Gợi ý</button>
+    <button id="btnSave">💾 Lưu game</button>
+  </nav>
+
+  <div class="dialogue" id="dialogue">
+    <strong id="speaker"></strong>
+    <div id="dialogueText"></div>
+    <div id="countdown" hidden><i></i></div>
+    <div id="choices"></div>
+  </div>
+</main>
+
+<!-- ===== CHI TIẾT VẬT THỂ ===== -->
+<div id="objectDetail" class="object-detail">
+  <div class="detail-box">
+    <button class="detail-close" id="detailClose">✕</button>
+    <div id="detailVisual"></div>
+    <h2 id="detailTitle"></h2>
+    <p id="detailDescription"></p>
+    <button class="btn" id="detailAction">Tương tác</button>
+  </div>
+</div>
+
+<!-- ===== BẢNG THÔNG TIN ===== -->
+<div id="panel">
+  <div class="panelbox">
+    <button class="btn small" id="panelClose" style="float:right">Đóng ✕</button>
+    <h2 id="panelTitle"></h2>
+    <div id="panelContent"></div>
+  </div>
+</div>
+
+<!-- ===== KẾT CỤC ===== -->
+<div id="endScreen" class="overlay hidden">
+  <div class="box center">
+    <p id="endTag" class="subtitle"></p>
+    <h1 id="endTitle" class="title small"></h1>
+    <p id="endText"></p>
+    <div class="btn-row" id="endButtons"></div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<!-- Thứ tự nạp: lõi trạng thái → dữ liệu → hệ thống → khởi động -->
+<script src="./js/core/state.js"></script>
+
+<script src="./js/data/audio-config.js"></script>
+<script src="./js/data/items.js"></script>
+<script src="./js/data/rooms.js"></script>
+<script src="./js/data/chapter1.js"></script>
+<script src="./js/data/endings.js"></script>
+
+<script src="./js/core/audio.js"></script>
+<script src="./js/core/fx.js"></script>
+<script src="./js/core/ui.js"></script>
+<script src="./js/core/scene.js"></script>
+<script src="./js/core/engine.js"></script>
+<script src="./js/main.js"></script>
+</body>
+</html>
